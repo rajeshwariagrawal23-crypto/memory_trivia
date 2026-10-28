@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Match & Trivia</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-orbs"><span></span><span></span><span></span></div>
+
+  <main class="app">
+
+    <!-- Start screen -->
+    <section id="start" class="screen active">
+      <h1 class="logo">🃏 Match<span>&</span>Trivia</h1>
+      <p class="tagline">Find the pairs. Answer the question. Beat the clock.</p>
+
+      <div class="levels">
+        <button class="level" data-level="easy"><b>Easy</b><small>6 pairs · 90s</small></button>
+        <button class="level" data-level="medium"><b>Medium</b><small>8 pairs · 120s</small></button>
+        <button class="level" data-level="hard"><b>Hard</b><small>10 pairs · 150s</small></button>
+      </div>
+
+      <div class="how">
+        <p>🔍 Flip two cards to find a match</p>
+        <p>❓ Every match unlocks a trivia question</p>
+        <p>⭐ Right answer = bonus points + extra time</p>
+      </div>
+      <p class="best">🏆 Best score: <strong id="best">0</strong></p>
+      <button id="sound-btn" class="ghost">🔊 Sound on</button>
+    </section>
+
+    <!-- Game screen -->
+    <section id="game" class="screen">
+      <header class="hud">
+        <div class="stat"><small>Time</small><b id="time">0</b></div>
+        <div class="stat"><small>Score</small><b id="score">0</b></div>
+        <div class="stat"><small>Moves</small><b id="moves">0</b></div>
+        <div class="stat"><small>Pairs</small><b id="pairs">0/0</b></div>
+      </header>
+      <div class="time-bar"><div id="time-fill"></div></div>
+      <div id="board" class="board"></div>
+      <button id="quit" class="ghost">← Menu</button>
+    </section>
+
+    <!-- Result screen -->
+    <section id="result" class="screen">
+      <h1 id="res-emoji">🎉</h1>
+      <h2 id="res-title">You did it!</h2>
+      <div id="stars" class="stars"></div>
+      <div class="res-grid">
+        <div><small>Score</small><b id="res-score">0</b></div>
+        <div><small>Moves</small><b id="res-moves">0</b></div>
+        <div><small>Trivia</small><b id="res-trivia">0/0</b></div>
+      </div>
+      <p id="res-new" class="new-best hidden">🎊 New best score!</p>
+      <div class="row">
+        <button id="again" class="btn">Play again</button>
+        <button id="menu" class="btn alt">Menu</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Trivia modal -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-box">
+      <div class="modal-top">
+        <span id="m-emoji" class="m-emoji">🌐</span>
+        <span class="m-tag">Bonus question</span>
+      </div>
+      <h3 id="m-question"></h3>
+      <div id="m-options" class="m-options"></div>
+      <p id="m-feedback" class="m-feedback"></p>
+      <button id="m-continue" class="btn hidden">Continue</button>
+    </div>
+  </div>
+
+  <canvas id="confetti"></canvas>
+  <script src="script.js"></script>
+</body>
+</html>
